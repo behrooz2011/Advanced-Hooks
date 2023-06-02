@@ -63,7 +63,7 @@ const Card = ({ setItemsPurchased, product, image, price }) => {
           className="bg-blue-500 text-white px-4 py-2 rounded"
           onClick={() => handleItemClick({ product, price })}
         >
-          Add your item to the cart
+          Add to the cart now
         </button>
       </div>
     </div>
