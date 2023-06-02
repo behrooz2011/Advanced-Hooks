@@ -72,16 +72,7 @@ const Card = ({ setItemsPurchased, product, image, price }) => {
 //great for photo
 //https://unsplash.com/photos/
 const UseMemoComponent = () => {
-  // const { totalPrice } = useContext(CartContext);
   const [itemsPurchased, setItemsPurchased] = useState([]);
-  // console.time("totalPriceExecution");
-  // const totalPrice = itemsPurchased.reduce((sum, item) => {
-  //   // console.log({ itemsPurchased });
-  //   // console.log("reducer activated in parent");
-  //   return sum + item.price;
-  // }, 0);
-  // console.timeEnd("totalPriceExecution");
-
   const totalPrice = useMemo(() => {
     console.log("useMemo triggered");
     return itemsPurchased.reduce((sum, item) => sum + item.price, 0);
