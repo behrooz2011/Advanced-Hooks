@@ -43,16 +43,16 @@
 
 //
 
-import React, { useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
+import React, { useMemo, useState } from "react";
+// import { CartContext } from "../contexts/CartContext";
 
-const Card = ({ product, image, price }) => {
-  const { itemsPurchased, setItemsPurchased } = useContext(CartContext);
+const Card = ({ setItemsPurchased, product, image, price }) => {
+  // const { itemsPurchased, setItemsPurchased } = useContext(CartContext);
   console.log("Card....");
 
   const handleItemClick = (item) => {
-    setItemsPurchased([...itemsPurchased, item]);
-    console.log({ itemsPurchased });
+    setItemsPurchased((prev) => [...prev, item]);
+    // console.log({ itemsPurchased });
   };
   return (
     <div className="bg-white shadow-lg rounded-lg overflow-hidden">
@@ -72,7 +72,21 @@ const Card = ({ product, image, price }) => {
 //great for photo
 //https://unsplash.com/photos/
 const UseMemoComponent = () => {
-  const { totalPrice } = useContext(CartContext);
+  // const { totalPrice } = useContext(CartContext);
+  const [itemsPurchased, setItemsPurchased] = useState([]);
+  // console.time("totalPriceExecution");
+  // const totalPrice = itemsPurchased.reduce((sum, item) => {
+  //   // console.log({ itemsPurchased });
+  //   // console.log("reducer activated in parent");
+  //   return sum + item.price;
+  // }, 0);
+  // console.timeEnd("totalPriceExecution");
+
+  const totalPrice = useMemo(() => {
+    console.log("useMemo triggered");
+    return itemsPurchased.reduce((sum, item) => sum + item.price, 0);
+  }, [itemsPurchased]);
+
   const cards = [
     {
       product: "a",
@@ -123,6 +137,7 @@ const UseMemoComponent = () => {
                   image={card.image}
                   price={card.price}
                   product={card.product}
+                  setItemsPurchased={setItemsPurchased}
                 />
               </div>
             ))}
