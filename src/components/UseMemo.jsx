@@ -44,12 +44,11 @@
 //
 
 import React, { useMemo, useState } from "react";
+
 // import { CartContext } from "../contexts/CartContext";
 
 const Card = ({ setItemsPurchased, product, image, price }) => {
-  // const { itemsPurchased, setItemsPurchased } = useContext(CartContext);
   console.log("Card....");
-
   const handleItemClick = (item) => {
     setItemsPurchased((prev) => [...prev, item]);
     // console.log({ itemsPurchased });
