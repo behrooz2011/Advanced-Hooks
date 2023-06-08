@@ -135,7 +135,7 @@ const UseMemoComponent = () => {
         </div>
         <div className="w-1/4 text-xl font-bold p-4 bg-gray-50 shadow-lg rounded-lg overflow-hidden m-4">
           <span className="">Total Price:{totalPrice}</span>
-          {/* <h1>An arm and a leg</h1> */}
+          {/* <h1 className="font-light">An arm and a leg</h1> */}
         </div>
       </div>
     </>
