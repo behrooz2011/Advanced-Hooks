@@ -25,7 +25,7 @@ function App() {
             <Link to="/useMemo">useMemo</Link>
           </li>
           <li className="p-4 hover:bg-amber-300 font-semibold">
-            <Link to="/useContextA">useCallback</Link>
+            <Link to="/useCallback">useCallback</Link>
           </li>
           <li className="p-4 hover:bg-amber-300 font-semibold">
             <Link to="/useContextA">useRef</Link>
